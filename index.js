@@ -14,6 +14,7 @@ var store = new MongoDBStore({
     origin: 'https://mern-front-kohl.vercel.app', // frontend URL
     credentials: true,
   }));
+  app.set('trust proxy', 1);
   app.use(session({
     secret: 'This is a secret',
     cookie: {
