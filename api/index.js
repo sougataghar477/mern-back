@@ -2,7 +2,7 @@ const express = require('express');
 var session = require('express-session');
 var MongoDBStore = require('connect-mongodb-session')(session);
 const cors=require('cors');
-const serverless = require('serverless-http');
+ 
 const app = express();
 const PORT = 3000;
 const mongoURI="mongodb+srv://sougataghar47:sitonmeloba69@cluster0.fllgfxo.mongodb.net/crud?retryWrites=true&w=majority&appName=Cluster0"
@@ -11,7 +11,7 @@ var store = new MongoDBStore({
     collection: 'sessions'
   });
   app.use(cors({
-    origin: '*', // frontend URL
+    origin: 'https://mern-front-kohl.vercel.app', // frontend URL
     credentials: true,
   }));
   app.use(session({
@@ -44,4 +44,3 @@ app.listen(PORT, () => {
   console.log(`API server running at http://localhost:${PORT}`);
 });
 module.exports = app;
-module.exports.handler = serverless(app);
