@@ -19,7 +19,7 @@ var store = new MongoDBStore({
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week,
       secure: false,          // required for cross-site cookies
-      sameSite: 'lax' 
+      sameSite: 'none' 
     },
     store: store,
     // Boilerplate options, see:
