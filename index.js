@@ -29,13 +29,15 @@ var store = new MongoDBStore({
     resave: true,
     saveUninitialized: true
   }));
-  app.get('/home', (req,res) => {
-    req.session.user = {
-        id: '123',
-        name: 'Alice',
-      };
-      res.json({msg:'Set cookies'})
-  })
+  app.get('/home', (req, res) => {
+    if (req.session.user) {
+      res.json({ msg: 'Session exists', user: req.session.user });
+    } else {
+      req.session.user = { id: '123', name: 'Alice' };
+      res.json({ msg: 'Session created', user: req.session.user });
+    }
+  });
+  
 app.get('/users', (req, res) => {
     res.json([{ id: 1, name: 'Alice' }]);
   });
