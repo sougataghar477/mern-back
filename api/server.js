@@ -2,6 +2,7 @@ const express = require('express');
 var session = require('express-session');
 var MongoDBStore = require('connect-mongodb-session')(session);
 const cors=require('cors');
+const serverless = require('serverless-http');
 const app = express();
 const PORT = 3000;
 const mongoURI="mongodb+srv://sougataghar47:sitonmeloba69@cluster0.fllgfxo.mongodb.net/crud?retryWrites=true&w=majority&appName=Cluster0"
@@ -42,3 +43,5 @@ app.get('/users/:id', (req,res) => {
 app.listen(PORT, () => {
   console.log(`API server running at http://localhost:${PORT}`);
 });
+module.exports = app;
+module.exports.handler = serverless(app);
