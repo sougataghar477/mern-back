@@ -12,7 +12,7 @@ var store = new MongoDBStore({
   });
   app.use(cors({
     origin: 'https://mern-front-kohl.vercel.app', // frontend URL
-    credentials: true,
+    
   }));
   app.use(session({
     secret: 'This is a secret',
