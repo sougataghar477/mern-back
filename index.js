@@ -18,7 +18,7 @@ var store = new MongoDBStore({
     secret: 'This is a secret',
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week,
-      secure: false,          // required for cross-site cookies
+      secure: true,          // required for cross-site cookies
       sameSite: 'none' 
     },
     store: store,
